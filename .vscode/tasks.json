@@ -5,7 +5,7 @@
     {
       "label": "Start Supabase",
       "type": "shell",
-      "command": "pnpm supabase start",
+      "command": "yarn supabase start",
       "problemMatcher": [],
       "presentation": {
         "echo": true,
@@ -19,7 +19,7 @@
     {
       "label": "Run Server",
       "type": "shell",
-      "command": "pnpm dev",
+      "command": "yarn dev",
       "problemMatcher": [],
 
       "presentation": {

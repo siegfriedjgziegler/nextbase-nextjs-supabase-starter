@@ -7,14 +7,14 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "start": "next start",
-    "generate:types:local": "export $(cat .env.local | xargs) &&  supabase gen types typescript --project-id ${SUPABASE_PROJECT_REF} --schema public > src/lib/database.types.ts",
+    "generate:types:local": "env-cmd -f .env.local supabase gen types typescript --project-id ${SUPABASE_PROJECT_REF} --schema public > src/lib/database.types.ts",
     "build": "next build",
     "test:e2e": "playwright test",
     "test": "vitest --root src --run",
     "test:watch": "vitest --root src",
-    "lint:eslint": "pnpm eslint --fix src",
+    "lint:eslint": "eslint --fix src",
     "lint:prettier": "prettier --write src",
-    "lint": "pnpm lint:eslint && pnpm lint:prettier",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
     "tsc": "tsc",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs"
   },
@@ -139,12 +139,5 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ]
-  },
-  "packageManager": "pnpm@9.0.6+sha512.f6d863130973207cb7a336d6b439a242a26ac8068077df530d6a86069419853dc1ffe64029ec594a9c505a3a410d19643c870aba6776330f5cfddcf10a9c1617",
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.1.0",
-      "@types/react-dom": "19.1.2"
-    }
   }
 }
